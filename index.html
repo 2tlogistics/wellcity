@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellCity Health & Wellbeing Fair</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --primary-green: #2e7d32;
+            --light-green: #81c784;
+            --dark-green: #1b5e20;
+            --accent-teal: #26a69a;
+            --contrast-orange: #ff8f00;
+            --light-bg: #f1f8e9;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), 
+                        url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .wellness-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .wellness-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .spiritual-bg {
+            background-color: rgba(129, 199, 132, 0.2);
+            border-left: 4px solid var(--primary-green);
+        }
+        
+        .mental-bg {
+            background-color: rgba(38, 166, 154, 0.2);
+            border-left: 4px solid var(--accent-teal);
+        }
+        
+        .physical-bg {
+            background-color: rgba(255, 143, 0, 0.2);
+            border-left: 4px solid var(--contrast-orange);
+        }
+        
+        .social-bg {
+            background-color: rgba(156, 204, 101, 0.2);
+            border-left: 4px solid #9ccc65;
+        }
+        
+        .financial-bg {
+            background-color: rgba(104, 159, 56, 0.2);
+            border-left: 4px solid #689f38;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--contrast-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scale-in.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-green-800">Well<span class="text-green-600">City</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-gray-700 hover:text-green-700">About</a>
+                <a href="#domains" class="nav-link text-gray-700 hover:text-green-700">Wellness Domains</a>
+                <a href="#experience" class="nav-link text-gray-700 hover:text-green-700">Experience</a>
+                <a href="#register" class="nav-link text-gray-700 hover:text-green-700">Register</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero-section min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" id="main-heading">
+                WellCity Health & Wellbeing Fair
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" id="sub-heading">
+                A Christ-Centered Marketplace of Healing, Connection, and Purpose for a New Generation
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#register" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Register Now
+                </a>
+                <a href="#about" class="bg-transparent hover:bg-white hover:text-green-800 text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300 transform hover:scale-105">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">Our Mission & Vision</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto fade-in"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                            alt="Community gathering" 
+                            class="rounded-lg shadow-xl w-full h-auto floating fade-in">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-green-700 mb-4 fade-in">Creating a Healing and Empowering Environment</h3>
+                    <p class="text-gray-700 mb-6 fade-in">
+                        WellCity is a first-of-its-kind, holistic, Christ-centered wellness event designed to serve young adults ages 18-33 by equipping them in the five core areas of human flourishing: Spiritual, Mental, Physical, Social, and Financial.
+                    </p>
+                    <p class="text-gray-700 mb-6 fade-in">
+                        We believe young adults today are facing unprecedented challenges: post-pandemic isolation, anxiety, cultural confusion, financial uncertainty, and a longing for authentic connection and purpose.
+                    </p>
+                    <p class="text-gray-700 fade-in">
+                        Through WellCity, we're building a community that will help young adults restore the biblical model of shalom by bringing Christ at the center in every chore of our EKLESIA Healing model.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-green-700 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-item scale-in">
+                    <div class="text-4xl font-bold mb-2">5</div>
+                    <div class="text-lg">Wellness Domains</div>
+                </div>
+                <div class="stat-item scale-in">
+                    <div class="text-4xl font-bold mb-2">18-33</div>
+                    <div class="text-lg">Age Group</div>
+                </div>
+                <div class="stat-item scale-in">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-lg">Workshops</div>
+                </div>
+                <div class="stat-item scale-in">
+                    <div class="text-4xl font-bold mb-2">100%</div>
+                    <div class="text-lg">Christ-Centered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="domains" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">The Five Chores of Wellbeing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">Holistic wellness rooted in biblical principles</p>
+                <div class="w-24 h-1 bg-green-600 mx-auto mt-4 fade-in"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="wellness-card spiritual-bg p-6 fade-in">
+                    <div class="text-green-700 mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-800 mb-3">Spiritual Wellness</h3>
+                    <p class="text-gray-700 mb-4">Authentic, Christ-centered guidance and safe spiritual community for purposeful identity formation.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Prayer & healing rooms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Mentorship sign-ups</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Purpose workshops</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="wellness-card mental-bg p-6 fade-in">
+                    <div class="text-teal-600 mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-teal-800 mb-3">Mental Wellness</h3>
+                    <p class="text-gray-700 mb-4">Trauma-informed education and emotion regulation skills with accessible counseling resources.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Emotional health workshops</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>On-site licensed counselors</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Mental health ministry info</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="wellness-card physical-bg p-6 fade-in">
+                    <div class="text-orange-500 mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-orange-700 mb-3">Physical Wellness</h3>
+                    <p class="text-gray-700 mb-4">Movement education and holistic health guidance for nutrition & rest awareness.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Fitness demos (yoga, dance, etc.)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Health screenings</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Nutrition coaching</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="wellness-card social-bg p-6 fade-in">
+                    <div class="text-green-600 mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-800 mb-3">Social Wellness</h3>
+                    <p class="text-gray-700 mb-4">Meaningful connection and healthy relationship tools with godly dating guidance.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Meetups & mixers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Relationship/dating panels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Mentorship networking</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="wellness-card financial-bg p-6 fade-in">
+                    <div class="text-green-700 mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-800 mb-3">Financial Wellness</h3>
+                    <p class="text-gray-700 mb-4">Budgeting education and career pathway clarity with employer connections.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Career fair & resume help</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Budgeting classes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Financial coaching workshops</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">Fair Experience</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">Interactive, restorative, and empowering activities</p>
+                <div class="w-24 h-1 bg-green-600 mx-auto mt-4 fade-in"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Welcome & Orientation</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Start your journey with prayer, hospitality, and a wellness passport to guide your experience.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Prayer & Hospitality Tent</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Registration & Swag Bags</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Wellness Passport for Activities</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Wellness Zones</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Explore interactive stations across all five domains of wellbeing with hands-on activities.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Sacred Reflection Room</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Therapist Booths</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Career Corner</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-800">Main Stage</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Be inspired by worship, speaker panels, and live testimonies throughout the day.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Worship Intervals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Speaker Panels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 mt-1 mr-2 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Live Testimonies</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-light-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">Highlights from Past Fairs</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">Moments of joy, learning, and connection</p>
+                <div class="w-24 h-1 bg-green-600 mx-auto mt-4 fade-in"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
+                    <img src="https://images.unsplash.com/photo-1542838686-37b5177a4563?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Group workshop" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Engaging Workshops</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
+                    <img src="https://images.unsplash.com/photo-1533628635777-cc08cd28be52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Therapy session" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Supportive Counseling</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
+                    <img src="https://images.unsplash.com/photo-1517840901100-8179e982acb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Career fair" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Career Opportunities</p>
+                    </div>
+                </div>
+                 <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
+                    <img src="https://images.unsplash.com/photo-1559828956-c73d9e87595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Yoga class" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Mindful Movement</p>
+                    </div>
+                </div>
+                 <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
+                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba13e574a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Financial literacy" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Financial Empowerment</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
+                    <img src="https://images.unsplash.com/photo-1532635241-689368d4d8a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Community dining" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Community & Connection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-green-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800 mb-4 fade-in">What People Are Saying</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto fade-in"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold mr-4">JD</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">John D.</h4>
+                            <p class="text-sm text-gray-600">Young Professional, 26</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"WellCity helped me connect my faith with practical life skills. The financial workshops changed how I view stewardship, and the prayer rooms were so refreshing!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold mr-4">SM</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah M.</h4>
+                            <p class="text-sm text-gray-600">College Student, 21</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"I found so much peace in the Sacred Reflection Room. It's truly a place where you can find rest and clarity. The mental wellness resources were also incredibly helpful."</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold mr-4">AL</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Alex L.</h4>
+                            <p class="text-sm text-gray-600">New Graduate, 23</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The career fair was a game-changer for me. I met so many inspiring people and even got an interview! This fair is truly about empowering the next generation."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-20 bg-light-green">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-900 mb-4 fade-in">Join WellCity Today!</h2>
+                <p class="text-xl text-green-800 max-w-3xl mx-auto fade-in">Register now to secure your spot at this transformative event.</p>
+                <div class="w-24 h-1 bg-green-700 mx-auto mt-4 fade-in"></div>
+            </div>
+
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl fade-in">
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_FORM_ID" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" name="name" required
+                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email" required
+                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
+                    </div>
+                    <div>
+                        <label for="age" class="block text-gray-700 text-sm font-bold mb-2">Age:</label>
+                        <input type="number" id="age" name="age" min="18" max="33" required
+                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
+                    </div>
+                    <div>
+                        <label for="interest" class="block text-gray-700 text-sm font-bold mb-2">Area of Interest:</label>
+                        <select id="interest" name="interest"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
+                            <option value="">Select an interest</option>
+                            <option value="spiritual">Spiritual Wellness</option>
+                            <option value="mental">Mental Wellness</option>
+                            <option value="physical">Physical Wellness</option>
+                            <option value="social">Social Wellness</option>
+                            <option value="financial">Financial Wellness</option>
+                            <option value="general">General Interest</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message (Optional):</label>
+                        <textarea id="message" name="message" rows="4"
+                                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                                class="bg-primary-green hover:bg-dark-green text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                            Submit Registration
+                        </button>
+                    </div>
+                </form>
+                <p class="text-center text-sm text-gray-500 mt-4">
+                    After submitting, you'll receive a confirmation email.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-green text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-wrap justify-center gap-8 mb-8">
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About</a>
+                <a href="#domains" class="text-gray-300 hover:text-white transition duration-300">Wellness Domains</a>
+                <a href="#experience" class="text-gray-300 hover:text-white transition duration-300">Experience</a>
+                <a href="#register" class="text-gray-300 hover:text-white transition duration-300">Register</a>
+            </div>
+            <p class="text-lg mb-4">&copy; Copyright 2025 by Digital Innovation USA.</p>
+            <p class="text-md">Visit our agency: <a href="https://digitalinnovation.agency" target="_blank" class="text-orange-400 hover:text-orange-300 font-bold transition duration-300">digitalinnovation.agency</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero section animations
+        gsap.from("#main-heading", {duration: 1, y: -50, opacity: 0, ease: "power3.out"});
+        gsap.from("#sub-heading", {duration: 1, y: 50, opacity: 0, ease: "power3.out", delay: 0.5});
+        gsap.from(".hero-section a", {duration: 1, opacity: 0, stagger: 0.3, delay: 1, ease: "power3.out"});
+
+        // Fade-in animation for sections
+        function setupFadeInAnimations() {
+            gsap.utils.toArray(".fade-in").forEach(element => {
+                gsap.from(element, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%", // When the top of the element hits 85% from the top of the viewport
+                        toggleActions: "play none none none",
+                        // markers: true // Uncomment for debugging
+                    }
+                });
+            });
+        }
+
+        // Scale-in animation for stats
+        function setupScaleInAnimations() {
+            gsap.utils.toArray(".scale-in").forEach(element => {
+                gsap.from(element, {
+                    opacity: 0,
+                    scale: 0.8,
+                    duration: 0.8,
+                    ease: "back.out(1.7)",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 90%", // When the top of the element hits 90% from the top of the viewport
+                        toggleActions: "play none none none",
+                        // markers: true // Uncomment for debugging
+                    }
+                });
+            });
+        }
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupFadeInAnimations();
+            setupScaleInAnimations();
+
+            // Optional: Hover effect for wellness cards using GSAP
+            document.querySelectorAll('.wellness-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {y: -10, boxShadow: "0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)", duration: 0.3, ease: "power1.out"});
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {y: 0, boxShadow: "0 0px 0px 0px rgba(0,0,0,0), 0 0px 0px 0px rgba(0,0,0,0)", duration: 0.3, ease: "power1.out"});
+                });
+            });
+        });
+    </script>
+</body>
+</html>
