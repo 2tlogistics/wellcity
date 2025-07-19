@@ -94,31 +94,10 @@
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scale-in.is-visible {
-            opacity: 1;
-            transform: scale(1);
-        }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
@@ -138,6 +117,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero-section min-h-screen flex items-center justify-center text-white pt-20">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6" id="main-heading">
@@ -162,28 +142,29 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">Our Mission & Vision</h2>
-                <div class="w-24 h-1 bg-green-600 mx-auto fade-in"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">Our Mission & Vision</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
             </div>
             
             <div class="flex flex-col md:flex-row gap-10 items-center">
                 <div class="md:w-1/2">
                     <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                            alt="Community gathering" 
-                            class="rounded-lg shadow-xl w-full h-auto floating fade-in">
+                         alt="Community gathering" 
+                         class="rounded-lg shadow-xl w-full h-auto floating">
                 </div>
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold text-green-700 mb-4 fade-in">Creating a Healing and Empowering Environment</h3>
-                    <p class="text-gray-700 mb-6 fade-in">
-                        WellCity is a first-of-its-kind, holistic, Christ-centered wellness event designed to serve young adults ages 18-33 by equipping them in the five core areas of human flourishing: Spiritual, Mental, Physical, Social, and Financial.
+                    <h3 class="text-2xl font-bold text-green-700 mb-4">Creating a Healing and Empowering Environment</h3>
+                    <p class="text-gray-700 mb-6">
+                        WellCity is a first-of-its-kind, holistic, Christ-centered wellness event designed to serve young adults ages 18–33 by equipping them in the five core areas of human flourishing: Spiritual, Mental, Physical, Social, and Financial.
                     </p>
-                    <p class="text-gray-700 mb-6 fade-in">
+                    <p class="text-gray-700 mb-6">
                         We believe young adults today are facing unprecedented challenges: post-pandemic isolation, anxiety, cultural confusion, financial uncertainty, and a longing for authentic connection and purpose.
                     </p>
-                    <p class="text-gray-700 fade-in">
+                    <p class="text-gray-700">
                         Through WellCity, we're building a community that will help young adults restore the biblical model of shalom by bringing Christ at the center in every chore of our EKLESIA Healing model.
                     </p>
                 </div>
@@ -191,22 +172,23 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="py-16 bg-green-700 text-white">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="stat-item scale-in">
+                <div class="stat-item">
                     <div class="text-4xl font-bold mb-2">5</div>
                     <div class="text-lg">Wellness Domains</div>
                 </div>
-                <div class="stat-item scale-in">
+                <div class="stat-item">
                     <div class="text-4xl font-bold mb-2">18-33</div>
                     <div class="text-lg">Age Group</div>
                 </div>
-                <div class="stat-item scale-in">
+                <div class="stat-item">
                     <div class="text-4xl font-bold mb-2">50+</div>
                     <div class="text-lg">Workshops</div>
                 </div>
-                <div class="stat-item scale-in">
+                <div class="stat-item">
                     <div class="text-4xl font-bold mb-2">100%</div>
                     <div class="text-lg">Christ-Centered</div>
                 </div>
@@ -214,16 +196,18 @@
         </div>
     </section>
 
+    <!-- Wellness Domains -->
     <section id="domains" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">The Five Chores of Wellbeing</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">Holistic wellness rooted in biblical principles</p>
-                <div class="w-24 h-1 bg-green-600 mx-auto mt-4 fade-in"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">The Five Chores of Wellbeing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Holistic wellness rooted in biblical principles</p>
+                <div class="w-24 h-1 bg-green-600 mx-auto mt-4"></div>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-                <div class="wellness-card spiritual-bg p-6 fade-in">
+                <!-- Spiritual Wellness -->
+                <div class="wellness-card spiritual-bg p-6">
                     <div class="text-green-700 mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
@@ -253,7 +237,8 @@
                     </ul>
                 </div>
                 
-                <div class="wellness-card mental-bg p-6 fade-in">
+                <!-- Mental Wellness -->
+                <div class="wellness-card mental-bg p-6">
                     <div class="text-teal-600 mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -283,7 +268,8 @@
                     </ul>
                 </div>
                 
-                <div class="wellness-card physical-bg p-6 fade-in">
+                <!-- Physical Wellness -->
+                <div class="wellness-card physical-bg p-6">
                     <div class="text-orange-500 mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -313,7 +299,8 @@
                     </ul>
                 </div>
                 
-                <div class="wellness-card social-bg p-6 fade-in">
+                <!-- Social Wellness -->
+                <div class="wellness-card social-bg p-6">
                     <div class="text-green-600 mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -343,7 +330,8 @@
                     </ul>
                 </div>
                 
-                <div class="wellness-card financial-bg p-6 fade-in">
+                <!-- Financial Wellness -->
+                <div class="wellness-card financial-bg p-6">
                     <div class="text-green-700 mb-4">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -376,16 +364,18 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">Fair Experience</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">Interactive, restorative, and empowering activities</p>
-                <div class="w-24 h-1 bg-green-600 mx-auto mt-4 fade-in"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">Fair Experience</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Interactive, restorative, and empowering activities</p>
+                <div class="w-24 h-1 bg-green-600 mx-auto mt-4"></div>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md fade-in">
+                <!-- Welcome Zone -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
                             <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -417,7 +407,8 @@
                     </ul>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md fade-in">
+                <!-- Wellness Zones -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
                             <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -449,7 +440,8 @@
                     </ul>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md fade-in">
+                <!-- Main Stage -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
                             <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -484,69 +476,16 @@
         </div>
     </section>
 
-    <section class="py-20 bg-light-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4 fade-in">Highlights from Past Fairs</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">Moments of joy, learning, and connection</p>
-                <div class="w-24 h-1 bg-green-600 mx-auto mt-4 fade-in"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
-                    <img src="https://images.unsplash.com/photo-1542838686-37b5177a4563?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Group workshop" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Engaging Workshops</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
-                    <img src="https://images.unsplash.com/photo-1533628635777-cc08cd28be52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Therapy session" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Supportive Counseling</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
-                    <img src="https://images.unsplash.com/photo-1517840901100-8179e982acb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Career fair" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Career Opportunities</p>
-                    </div>
-                </div>
-                 <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
-                    <img src="https://images.unsplash.com/photo-1559828956-c73d9e87595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Yoga class" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Mindful Movement</p>
-                    </div>
-                </div>
-                 <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
-                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba13e574a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Financial literacy" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Financial Empowerment</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-lg shadow-lg group fade-in">
-                    <img src="https://images.unsplash.com/photo-1532635241-689368d4d8a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Community dining" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Community & Connection</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Testimonials -->
     <section class="py-16 bg-green-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-green-800 mb-4 fade-in">What People Are Saying</h2>
-                <div class="w-24 h-1 bg-green-600 mx-auto fade-in"></div>
+                <h2 class="text-3xl font-bold text-green-800 mb-4">What People Are Saying</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto"></div>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold mr-4">JD</div>
                         <div>
@@ -557,7 +496,7 @@
                     <p class="text-gray-700 italic">"WellCity helped me connect my faith with practical life skills. The financial workshops changed how I view stewardship, and the prayer rooms were so refreshing!"</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold mr-4">SM</div>
                         <div>
@@ -565,150 +504,223 @@
                             <p class="text-sm text-gray-600">College Student, 21</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic">"I found so much peace in the Sacred Reflection Room. It's truly a place where you can find rest and clarity. The mental wellness resources were also incredibly helpful."</p>
+                    <p class="text-gray-700 italic">"As someone who experienced church hurt, the mental health zone with Christian counselors helped me begin healing in ways I didn't think possible."</p>
                 </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-md fade-in">
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold mr-4">AL</div>
+                        <div class="w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-green-800 font-bold mr-4">MC</div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Alex L.</h4>
-                            <p class="text-sm text-gray-600">New Graduate, 23</p>
+                            <h4 class="font-bold text-gray-800">Miguel C.</h4>
+                            <p class="text-sm text-gray-600">Entrepreneur, 30</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic">"The career fair was a game-changer for me. I met so many inspiring people and even got an interview! This fair is truly about empowering the next generation."</p>
+                    <p class="text-gray-700 italic">"The bilingual resources and focus on minority communities made me feel seen and valued. I left with practical tools and new connections!"</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="register" class="py-20 bg-light-green">
+    <!-- Register Section -->
+    <section id="register" class="py-20 bg-green-700 text-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-900 mb-4 fade-in">Join WellCity Today!</h2>
-                <p class="text-xl text-green-800 max-w-3xl mx-auto fade-in">Register now to secure your spot at this transformative event.</p>
-                <div class="w-24 h-1 bg-green-700 mx-auto mt-4 fade-in"></div>
-            </div>
-
-            <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl fade-in">
-                <form action="https://formspree.io/f/YOUR_FORMSPREE_FORM_ID" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-                        <input type="text" id="name" name="name" required
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                        <input type="email" id="email" name="email" required
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
-                    </div>
-                    <div>
-                        <label for="age" class="block text-gray-700 text-sm font-bold mb-2">Age:</label>
-                        <input type="number" id="age" name="age" min="18" max="33" required
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
-                    </div>
-                    <div>
-                        <label for="interest" class="block text-gray-700 text-sm font-bold mb-2">Area of Interest:</label>
-                        <select id="interest" name="interest"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500">
-                            <option value="">Select an interest</option>
-                            <option value="spiritual">Spiritual Wellness</option>
-                            <option value="mental">Mental Wellness</option>
-                            <option value="physical">Physical Wellness</option>
-                            <option value="social">Social Wellness</option>
-                            <option value="financial">Financial Wellness</option>
-                            <option value="general">General Interest</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message (Optional):</label>
-                        <textarea id="message" name="message" rows="4"
-                                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-500"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit"
-                                class="bg-primary-green hover:bg-dark-green text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                            Submit Registration
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Experience Wholeness?</h2>
+                <p class="text-xl mb-8">Join us for a transformative day of healing, connection, and purpose.</p>
+                
+                <div class="bg-white text-gray-800 rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-green-800 mb-6">Register for the WellCity Fair</h3>
+                    
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" id="firstName" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" id="lastName" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+                            <select id="age" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                <option value="">Select your age range</option>
+                                <option value="18-21">18-21</option>
+                                <option value="22-25">22-25</option>
+                                <option value="26-29">26-29</option>
+                                <option value="30-33">30-33</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Which wellness areas interest you most?</label>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="spiritual" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <label for="spiritual" class="ml-2 text-sm text-gray-700">Spiritual Wellness</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="mental" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <label for="mental" class="ml-2 text-sm text-gray-700">Mental Wellness</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="physical" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <label for="physical" class="ml-2 text-sm text-gray-700">Physical Wellness</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="social" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <label for="social" class="ml-2 text-sm text-gray-700">Social Wellness</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="financial" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <label for="financial" class="ml-2 text-sm text-gray-700">Financial Wellness</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-300 transform hover:scale-105">
+                            Register Now
                         </button>
-                    </div>
-                </form>
-                <p class="text-center text-sm text-gray-500 mt-4">
-                    After submitting, you'll receive a confirmation email.
-                </p>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark-green text-white py-10">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex flex-wrap justify-center gap-8 mb-8">
-                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About</a>
-                <a href="#domains" class="text-gray-300 hover:text-white transition duration-300">Wellness Domains</a>
-                <a href="#experience" class="text-gray-300 hover:text-white transition duration-300">Experience</a>
-                <a href="#register" class="text-gray-300 hover:text-white transition duration-300">Register</a>
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">WellCity</h3>
+                    <p class="text-green-200">A Christ-Centered Marketplace of Healing, Connection, and Purpose for a New Generation.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-green-200 hover:text-white transition">About</a></li>
+                        <li><a href="#domains" class="text-green-200 hover:text-white transition">Wellness Domains</a></li>
+                        <li><a href="#experience" class="text-green-200 hover:text-white transition">Experience</a></li>
+                        <li><a href="#register" class="text-green-200 hover:text-white transition">Register</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-green-200">
+                        <li>info@wellcity.org</li>
+                        <li>(555) 123-4567</li>
+                        <li>123 Wellness Way<br>City, State 12345</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-green-800 flex items-center justify-center hover:bg-green-700 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-green-800 flex items-center justify-center hover:bg-green-700 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-green-800 flex items-center justify-center hover:bg-green-700 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="text-lg mb-4">&copy; Copyright 2025 by Digital Innovation USA.</p>
-            <p class="text-md">Visit our agency: <a href="https://digitalinnovation.agency" target="_blank" class="text-orange-400 hover:text-orange-300 font-bold transition duration-300">digitalinnovation.agency</a></p>
+            
+            <div class="border-t border-green-800 mt-8 pt-8 text-center text-green-400">
+                <p>© 2025 WellCity Health & Wellbeing Fair. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
         // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero section animations
-        gsap.from("#main-heading", {duration: 1, y: -50, opacity: 0, ease: "power3.out"});
-        gsap.from("#sub-heading", {duration: 1, y: 50, opacity: 0, ease: "power3.out", delay: 0.5});
-        gsap.from(".hero-section a", {duration: 1, opacity: 0, stagger: 0.3, delay: 1, ease: "power3.out"});
-
-        // Fade-in animation for sections
-        function setupFadeInAnimations() {
-            gsap.utils.toArray(".fade-in").forEach(element => {
-                gsap.from(element, {
-                    opacity: 0,
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hero section animations
+            gsap.from("#main-heading", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+            
+            gsap.from("#sub-heading", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power3.out",
+                delay: 0.3
+            });
+            
+            // Scroll animations for sections
+            gsap.utils.toArray('.stat-item').forEach((item, i) => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
                     y: 50,
-                    duration: 0.8,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 85%", // When the top of the element hits 85% from the top of the viewport
-                        toggleActions: "play none none none",
-                        // markers: true // Uncomment for debugging
-                    }
-                });
-            });
-        }
-
-        // Scale-in animation for stats
-        function setupScaleInAnimations() {
-            gsap.utils.toArray(".scale-in").forEach(element => {
-                gsap.from(element, {
                     opacity: 0,
-                    scale: 0.8,
                     duration: 0.8,
-                    ease: "back.out(1.7)",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 90%", // When the top of the element hits 90% from the top of the viewport
-                        toggleActions: "play none none none",
-                        // markers: true // Uncomment for debugging
-                    }
+                    delay: i * 0.1
                 });
             });
-        }
-
-        // Initialize animations when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            setupFadeInAnimations();
-            setupScaleInAnimations();
-
-            // Optional: Hover effect for wellness cards using GSAP
-            document.querySelectorAll('.wellness-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    gsap.to(card, {y: -10, boxShadow: "0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)", duration: 0.3, ease: "power1.out"});
+            
+            gsap.utils.toArray('.wellness-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1
                 });
-                card.addEventListener('mouseleave', () => {
-                    gsap.to(card, {y: 0, boxShadow: "0 0px 0px 0px rgba(0,0,0,0), 0 0px 0px 0px rgba(0,0,0,0)", duration: 0.3, ease: "power1.out"});
+            });
+            
+            // Floating animation for the image in about section
+            gsap.to(".floating", {
+                y: 15,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
